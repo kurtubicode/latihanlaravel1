@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hai cik</h1>
+    <a href="contact">contact</a>
+    <a href="about">about</a>
+    <a href="contact2">contact2</a>
+    <a href="about2">about2</a>
+    <a href="mahasiswa">mahasiswa</a>
+    <a href="admin">admin</a>
+</body>
+</html>

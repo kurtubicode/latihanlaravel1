@@ -6,6 +6,41 @@ use App\Http\Controllers\C_Mahasiswa;
 use App\Http\Controllers\C_Contact;
 use App\Http\Controllers\C_Dosen;
 use App\Http\Controllers\C_Home;
+use App\Http\Controllers\C_Login;
+
+route::get('/', [C_Login::class,'index']);
+route::get('/home', [C_Home::class,'index']);
+route::get('/about', [C_Home::class,'about']);
+route::get('/about2/{id}', [C_Home::class,'about2']);
+// route::get('/dosen', [C_Dosen::class,'index'])->name('dosen');
+// route::get('/dosen/detail/{id_dosen}', [C_Dosen::class,'detail']);
+
+// Route::resource('dosen', C_Dosen::class);
+// use App\Http\Controllers\C_Dosen;
+
+Route::get('/dosen', [C_Dosen::class, 'index'])->name('dosen');
+Route::get('/dosen/detail/{id_dosen}', [C_Dosen::class, 'detail']);
+Route::get('/dosen/add', [C_Dosen::class, 'add']);
+Route::post('/dosen/insert', [C_Dosen::class, 'insert']);
+Route::get('/dosen/edit/{id_dosen}', [C_Dosen::class, 'edit']);
+Route::post('/dosen/update/{id_dosen}', [C_Dosen::class, 'update']);
+Route::get('/dosen/delete/{id_dosen}', [C_Dosen::class, 'delete']);
+
+
+
+
+
+
+// route::view('/', 'v_dasboard');
+// route::get('/home', [C_Home::class, 'index'])->name('home');
+// route::get('/dosen', [C_Dosen::class, 'index'])->name('dosen');
+// route::get('/mahasiswa', [C_Mahasiswa::class, 'index'])->name('mahasiswa');
+// route::get('/contact', [C_Contact::class, 'index'])->name('contact');
+// route::get('/about/{nama_pt}', [C_About::class, 'index'])->name('about');
+
+
+
+
 
 // Route::get('/', function () {
 //     return view('welcome2');
@@ -55,12 +90,7 @@ use App\Http\Controllers\C_Home;
 // route::view('/contact', 'v_contact');
 // route::view('/about', 'v_about');
 
-route::view('/', 'v_dasboard');
-route::get('/home', [C_Home::class, 'index'])->name('home');
-route::get('/dosen', [C_Dosen::class, 'index'])->name('dosen');
-route::get('/mahasiswa', [C_Mahasiswa::class, 'index'])->name('mahasiswa');
-route::get('/contact', [C_Contact::class, 'index'])->name('contact');
-route::get('/about/{nama_pt}', [C_About::class, 'index'])->name('about');
+
 
 
 

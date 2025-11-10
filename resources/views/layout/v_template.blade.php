@@ -19,7 +19,7 @@
 
     <div id="layoutSidenav">
         {{-- side bar --}}
-        @include('layout.v_sidebar2')
+        @include('layout.v_sidebar')
 
         <div id="layoutSidenav_content">
 

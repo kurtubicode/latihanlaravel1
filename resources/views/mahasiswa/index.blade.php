@@ -4,19 +4,19 @@
 @endsection
 
 @section('title')
-    Page Home
+    Dashboard mahasiswa
 @endsection
 
 @section('content')
     <main>
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Data Table widh defalut features</h3>
+                <h3 class="card-title">Dashboard mahasiswa</h3>
             </div>
             <div class="card-body">
-            
 
-                        
+                <p>ini dasborad mahasiswa</p>
+
             </div>
         </div>
     </main>

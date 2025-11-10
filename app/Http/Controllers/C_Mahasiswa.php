@@ -14,6 +14,6 @@ class C_Mahasiswa extends Controller
         ];
 
         // 2. Kirim array $data ke view
-        return view('v_mahasiswa', $data);
+        return view('mahasiswa.index', $data);
     }
 }

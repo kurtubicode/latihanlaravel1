@@ -12,8 +12,18 @@ use App\Http\Controllers\C_Admin;
 use App\Http\Controllers\C_Pegawai;
 
 
-Route::view('/', 'v_login');
-Route::get('/login', [C_Login::class,'login'])->name('login');
+// Route::view('/', 'v_login');
+Route::get('/', [C_Login::class,'index'])->name('root');
+Route::post('/login', [C_Login::class,'login'])->name('login');
+Route::get('/register', [C_Register::class,'index'])->name('index');
+Route::post('/register/proses',[C_Register::class,'register'])->name('register');
+Route::get('/logout', [C_Login::class, 'logout'])->name('logout');
+
+Route::get('/mahasiswa', [C_Mahasiswa::class,'index'])->name('mahasiswa.index');
+Route::get('/admin', [C_Admin::class,'index'])->name('admin.index');
+Route::get('/pegawai', [C_Pegawai::class,'index'])->name('pegawai.index');
+Route::get('/dosen', [C_Dosen::class,'index'])->name('dosen.index');
+
 
 
 
@@ -126,6 +136,6 @@ Route::get('/login', [C_Login::class,'login'])->name('login');
 
 
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -12,7 +12,7 @@ use App\Http\Controllers\C_Admin;
 use App\Http\Controllers\C_Pegawai;
 
 
-Route::view('/', 'login');
+Route::view('/', 'v_login');
 Route::get('/login', [C_Login::class,'login'])->name('login');
 
 

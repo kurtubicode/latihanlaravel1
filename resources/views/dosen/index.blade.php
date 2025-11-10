@@ -52,10 +52,9 @@
                                 <td>{{ $data->mata_kuliah }}</td>
                                 <td><img src="{{ url('foto_dosen/' . $data->foto_dosen) }}" width="100px" alt=""></td>
                                 <td>
-                                    <a href="dosen/detail/{{ $data->id }}" class="btn btn-sm btn-success">Detail</a>
-                                    <a href="/dosen/edit/{{ $data->id }}" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="/dosen/edit/{{ $data->id_dosen }}" class="btn btn-sm btn-warning">Edit</a>
                                     <button type="button" class="btn btn-danger" data-toggle="modal"
-                                        data-target="#delete{{ $data->id }}">
+                                        data-target="#delete{{ $data->id_dosen }}">
                                         Delete
                                     </button>
                                 </td>
@@ -74,7 +73,7 @@
                     </tfoot>
                 </table>
                 @foreach ($dosens as $data)
-                    <div class="modal fade" id="delete{{ $data->id }}">
+                    <div class="modal fade" id="delete{{ $data->id_dosen }}">
                         <div class="modal-dialog modal-sm">
                             <div class="modal-content bg-danger">
                                 <div class="modal-header">
@@ -87,7 +86,7 @@
                                     <p>Apakah anda ingin menghapus data ini?</p>
                                 </div>
                                 <div class="modal-footer justify-content-between">
-                                    <a href="/dosen/delete/{{ $data->id }}" class="btn btn-outline-light">Yes</a>
+                                    <a href="/dosen/delete/{{ $data->id_dosen }}" class="btn btn-outline-light">Yes</a>
                                     <button type="button" class="btn btn-outline-light" data-dismis="modal">
                                         No
                                     </button>

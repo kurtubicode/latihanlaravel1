@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
 
-class C_Login extends Controller
+class LoginController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -24,31 +23,18 @@ class C_Login extends Controller
     /**
      * Where to redirect users after login.
      *
-     *
+     * @var string
      */
-    //  @var string
-    // protected $redirectTo = '/home';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
      *
-     *
+     * @return void
      */
-    // @return void
-    // public function __construct()
-    // {
-    //     $this->middleware('guest')->except('logout');
-    //     $this->middleware('auth')->only('logout');
-    // }
-
-    public function index()
+    public function __construct()
     {
-        return view('v_login');
+        $this->middleware('guest')->except('logout');
+        $this->middleware('auth')->only('logout');
     }
-
-    // public function login(Request $request){
-    //     return 'tes';
-    // }
-
-
 }

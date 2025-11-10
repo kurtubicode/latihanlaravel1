@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\C_Register;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\C_About;
 use App\Http\Controllers\C_Mahasiswa;
@@ -7,24 +8,54 @@ use App\Http\Controllers\C_Contact;
 use App\Http\Controllers\C_Dosen;
 use App\Http\Controllers\C_Home;
 use App\Http\Controllers\C_Login;
+use App\Http\Controllers\C_Admin;
+use App\Http\Controllers\C_Pegawai;
 
-route::get('/', [C_Login::class,'index']);
-route::get('/home', [C_Home::class,'index']);
-route::get('/about', [C_Home::class,'about']);
-route::get('/about2/{id}', [C_Home::class,'about2']);
-// route::get('/dosen', [C_Dosen::class,'index'])->name('dosen');
-// route::get('/dosen/detail/{id_dosen}', [C_Dosen::class,'detail']);
 
-// Route::resource('dosen', C_Dosen::class);
-// use App\Http\Controllers\C_Dosen;
+Route::view('/', 'login');
+Route::get('/login', [C_Login::class,'login'])->name('login');
 
-Route::get('/dosen', [C_Dosen::class, 'index'])->name('dosen');
-Route::get('/dosen/detail/{id_dosen}', [C_Dosen::class, 'detail']);
-Route::get('/dosen/add', [C_Dosen::class, 'add']);
-Route::post('/dosen/insert', [C_Dosen::class, 'insert']);
-Route::get('/dosen/edit/{id_dosen}', [C_Dosen::class, 'edit']);
-Route::post('/dosen/update/{id_dosen}', [C_Dosen::class, 'update']);
-Route::get('/dosen/delete/{id_dosen}', [C_Dosen::class, 'delete']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// route::get('/', [C_Login::class,'index'])->name('root');
+// // route::view('/', '');
+// route::get('/login', [C_Login::class,'login'])->name('login');
+// route::get('/logout', [C_Login::class,'logout'])->name('admin.logout');
+// route::get('/register', [C_Register::class,'index']);
+
+// route::get('/dosen/index', [C_Dosen::class,'index'])->name('dosen.index');
+// route::get('/mahasiswa/index', [C_Mahasiswa::class,'index'])->name('mahasiswa.index');
+// route::get('/admin', [C_Admin::class,'index']);
+// route::get('/pegawai', [C_Pegawai::class, 'index']);
+// route::get('/home', [C_Home::class,'index']);
+// // route::get('/about', [C_Home::class,'about']);
+// // route::get('/about2/{id}', [C_Home::class,'about2']);
+// // route::get('/dosen', [C_Dosen::class,'index'])->name('dosen');
+// // route::get('/dosen/detail/{id_dosen}', [C_Dosen::class,'detail']);
+
+// // Route::resource('dosen', C_Dosen::class);
+// // use App\Http\Controllers\C_Dosen;
+
+// Route::get('/dosen', [C_Dosen::class, 'index'])->name('dosen');
+// Route::get('/dosen/detail/{id_dosen}', [C_Dosen::class, 'detail']);
+// Route::get('/dosen/add', [C_Dosen::class, 'add']);
+// Route::post('/dosen/insert', [C_Dosen::class, 'insert']);
+// Route::get('/dosen/edit/{id_dosen}', [C_Dosen::class, 'edit']);
+// Route::post('/dosen/update/{id_dosen}', [C_Dosen::class, 'update']);
+// Route::get('/dosen/delete/{id_dosen}', [C_Dosen::class, 'delete']);
 
 
 
@@ -94,3 +125,7 @@ Route::get('/dosen/delete/{id_dosen}', [C_Dosen::class, 'delete']);
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

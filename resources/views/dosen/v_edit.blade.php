@@ -1,12 +1,12 @@
-@extends('layouts.app')
+@extends('layout.v_template')
 
 @section('content')
 <div class="container mt-4">
     <h2>Edit Dosen</h2>
 
-    <form action="{{  $dosen->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ $dosen->id_dosen }}" method="POST" enctype="multipart/form-data">
         @csrf
-        @method('PUT')
+
 
         <div class="mb-3">
             <label>NIP</label>
@@ -32,7 +32,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Update</button>
-        <a href="{{ route('dosen.index') }}" class="btn btn-secondary">Kembali</a>
+        {{-- <a href="{{ route('dosen.v_dosen') }}" class="btn btn-secondary">Kembali</a> --}}
     </form>
 </div>
 @endsection

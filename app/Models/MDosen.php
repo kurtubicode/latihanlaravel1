@@ -26,7 +26,7 @@ class MDosen extends Model
 
     public function detailData($id_dosen)
     {
-        return DB::table($this->table)->where('id', $id_dosen)->first();
+        return DB::table($this->table)->where('id_dosen', $id_dosen)->first();
     }
 
     public function addData($data)
@@ -36,11 +36,11 @@ class MDosen extends Model
 
     public function editData($id_dosen, $data)
     {
-        DB::table($this->table)->where('id', $id_dosen)->update($data);
+        DB::table($this->table)->where('id_dosen', $id_dosen)->update($data);
     }
 
     public function deleteData($id_dosen)
     {
-        DB::table($this->table)->where('id', $id_dosen)->delete();
+        DB::table($this->table)->where('id_dosen', $id_dosen)->delete();
     }
 }

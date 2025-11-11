@@ -34,7 +34,7 @@ class C_Register extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'email_verified_at' => null,
-            'password' => $request->password,
+            'password' =>bcrypt($request->password),
             'remember_token' => null,
             'created_at' => null,
             'updated_at' => null,

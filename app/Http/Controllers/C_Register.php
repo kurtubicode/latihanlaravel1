@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\M_User;
+// use App\M_User;
+use App\Models\M_User;
+// use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class C_Register extends Controller
 {
     // protected $M_user // Menyimpan instance dari model M_User
     protected $M_User;
 
-    public function __construct($M_User)
+    public function __construct(M_User $M_User)
     {
         $this->M_User = $M_User;
     }

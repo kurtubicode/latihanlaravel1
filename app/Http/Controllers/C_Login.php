@@ -22,42 +22,47 @@ class C_Login extends Controller
 
         // Mengambil nilai tabel menggunakan metode binding sql yang langsung
         // ke data DB select
-        $data = DB::select("SELECT name, password, level FROM users WHERE email = ? AND password = ?", [$email, $password]);
+        $data = DB::select("SELECT name, email, password, level FROM users WHERE email = ?", [$email]);
 
         // Memeriksa apakah data ditemukan
         if (!empty($data)) {
             $user = $data[0]; // Ambil data user pertama
 
-            // Set session user
-            session()->put('user', $user);
 
-            // Pesan session
-            session()->flash('login_success', 'Berhasil login sebagai ' . $user->name . '.');
-            
-            // Script Alert yang digunakan
-            $user->name = "<script>alert('Berhasil login sebagai {$user->name}');</script>";
+            if (Hash::check($password, $user->password)) {
 
-            // Redirect based on user level
-            switch ($user->level) {
-                case 'admin':
-                    return redirect()->route('admin.index')
-                        ->with('alertScript', $user->name);
-                case 'pegawai':
-                    return redirect()->route('pegawai.index')
-                        ->with('alertScript', $user->name);
-                case 'mahasiswa':
-                    return redirect()->route('mahasiswa.index')
-                        ->with('alertScript', $user->name);
-                case 'dosen':
-                    return redirect()->route('dosen.index')
-                        ->with('alertScript', $user->name);
-                default:
-                    return 'Invalid user level';
+                session()->put('user', $user);
+
+                // Pesan session
+                session()->flash('login_success', 'Berhasil login sebagai ' . $user->name . '.');
+                
+                // Script Alert yang digunakan
+                $user->name = "<script>alert('Berhasil login sebagai {$user->name}');</script>";
+
+                // Redirect based on user level
+                switch ($user->level) {
+                    case 'admin':
+                        return redirect()->route('admin.index')
+                            ->with('alertScript', $user->name);
+                    case 'pegawai':
+                        return redirect()->route('pegawai.index')
+                            ->with('alertScript', $user->name);
+                    case 'mahasiswa':
+                        return redirect()->route('mahasiswa.index')
+                            ->with('alertScript', $user->name);
+                    case 'dosen':
+                        return redirect()->route('dosen.index')
+                            ->with('alertScript', $user->name);
+                    default:
+                        return 'Invalid user level';
+                   } 
+            } else {
+                return 'password salah';
             }
+            // Set session user            
         } else {
             // Jika tidak ada data, kembalikan pesan kesalahan atau lakukan tindakan lain
-            // return 'User tidak ditemukan';
-            return dd($data);
+            return 'User tidak ditemukan';
         }
     }
 

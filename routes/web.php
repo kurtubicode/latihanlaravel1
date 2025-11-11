@@ -15,8 +15,8 @@ use App\Http\Controllers\C_Pegawai;
 // Route::view('/', 'v_login');
 Route::get('/', [C_Login::class,'index'])->name('root');
 Route::post('/login', [C_Login::class,'login'])->name('login');
-Route::get('/register', [C_Register::class,'index'])->name('index');
-Route::post('/register/proses',[C_Register::class,'register'])->name('register');
+Route::get('/register', [C_Register::class,'index'])->name('register');
+Route::post('/register/proses',[C_Register::class,'register'])->name('register.proses');
 Route::get('/logout', [C_Login::class, 'logout'])->name('logout');
 
 Route::get('/mahasiswa', [C_Mahasiswa::class,'index'])->name('mahasiswa.index');
